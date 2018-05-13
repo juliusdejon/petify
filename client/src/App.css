@@ -1,4 +1,38 @@
 :root {
   --opensans : 'Open Sans';
 }
+body {
+  color: #484848;
+  font-family: var(--opensans);
+}
+.landing {
+  position: relative;
+  background: url('./images/animals.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  width: 100%;
+}
 
+.search {
+    position: absolute;
+    top: 4%;
+    left: 2%;
+    line-height: 16px;
+}
+
+nav {
+  display: flex;
+  padding: 12px 20px;
+  justify-content: space-between;
+}
+
+.nav-actions {
+  display: flex;
+  margin-left: auto;
+}
+
+nav div {
+  margin: 0 6px;
+
+}
