@@ -16,23 +16,47 @@ body {
 
 .search {
     position: absolute;
-    top: 4%;
     left: 2%;
     line-height: 16px;
 }
 
 nav {
   display: flex;
-  padding: 12px 20px;
+  padding: 6px 40px;
   justify-content: space-between;
 }
 
+nav img {
+  width: 3rem;
+  border-radius: 1rem;
+}
 .nav-actions {
   display: flex;
   margin-left: auto;
 }
 
 nav div {
-  margin: 0 6px;
-
+  margin: 0 4px;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.btn-register a {
+  color: #fff;
+}
+
+.btn-register {
+  position: absolute;
+  color: #fff;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #fff;
+  padding: 0.4125em 1.25em;
+  bottom: 3rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+

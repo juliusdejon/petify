@@ -16,7 +16,7 @@ const styles = theme => ({
   },
 });
 
-class Login extends Component {
+class Register extends Component {
   constructor() {
     super();
     this.state = {
@@ -32,6 +32,7 @@ class Login extends Component {
     const newUser = {
       email: this.state.email,
       password: this.state.password,
+      password2: this.state.password2
     }
     console.log(newUser);
   }
@@ -45,7 +46,7 @@ class Login extends Component {
         <Grid container spacing={0}>
           <Grid item xs={12} md={6}>
             <Paper className={classes.paper}>
-              <h1> Login </h1>
+              <h1> Register </h1>
               <form onSubmit={this.onSubmit}>
                 <TextField
                   label="Email or Username"
@@ -64,8 +65,17 @@ class Login extends Component {
                   name="password"
                   type="password"
                 />
+                <TextField
+                  label="Confirm Password"
+                  fullWidth
+                  onChange={this.onChange}
+                  margin="normal"
+                  value={this.state.password2}
+                  name="password2"
+                  type="password"
+                />
                 <Button type="submit" variant="raised" color="primary" className={classes.button}>
-                  Login
+                  Sign Up
               </Button>
               </form>
             </Paper>
@@ -76,4 +86,4 @@ class Login extends Component {
   }
 }
 
-export default withStyles(styles)(Login);
+export default withStyles(styles)(Register);

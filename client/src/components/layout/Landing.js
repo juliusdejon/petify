@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import Background from '../../images/animals.jpg';
+import { Link } from 'react-router-dom';
 import { Paper, Typography, TextField, Button } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
-import Navbar from './Navbar';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -17,7 +16,6 @@ export class Landing extends Component {
     const { classes } = this.props;
     return (
       <div>
-        <Navbar />
         <div className="landing">
           <div className="search">
             <Paper className={classes.root} elevation={10}>
@@ -44,6 +42,7 @@ export class Landing extends Component {
               </Typography>
             </Paper>
           </div>
+          <Link to="/register"><div className="btn-register">Register</div></Link>
         </div>
       </div>
     )
