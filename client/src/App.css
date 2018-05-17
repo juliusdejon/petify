@@ -60,3 +60,8 @@ a {
   transform: translateX(-50%);
 }
 
+.errors {
+  color: #D64541;
+  font-size: 90%;
+  font-family: var(--opensans);
+}

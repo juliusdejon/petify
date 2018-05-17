@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import { Paper, Typography, TextField, Button } from 'material-ui';
+import { Paper, TextField, Button } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
 
 const styles = theme => ({
@@ -20,26 +20,20 @@ export class Landing extends Component {
           <div className="search">
             <Paper className={classes.root} elevation={10}>
               <h1> Find Pets on Petify </h1>
-              <Typography>
-                <TextField
-                  id="search"
-                  label="Breed"
-                  type="search"
-                  className={classes.textField}
-                  margin="normal"
-                  fullWidth
-                  placeholder="eg. Labrador"
-                />
-                <TextField
-                  id="search"
-                  label="Location"
-                  type="search"
-                  className={classes.textField}
-                  margin="normal"
-                  fullWidth
-                />
-                <Button variant="raised" component="span" className={classes.button}>Submit</Button>
-              </Typography>
+              <TextField
+                label="Breed"
+                className={classes.textField}
+                margin="normal"
+                fullWidth
+                placeholder="eg. Labrador"
+              />
+              <TextField
+                label="Location"
+                className={classes.textField}
+                margin="normal"
+                fullWidth
+              />
+              <Button variant="raised" component="span" className={classes.button}>Submit</Button>
             </Paper>
           </div>
           <Link to="/register"><div className="btn-register">Register</div></Link>
