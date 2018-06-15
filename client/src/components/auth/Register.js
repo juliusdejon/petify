@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { withStyles } from 'material-ui/styles';
 import { Paper, Grid, TextField, Button } from 'material-ui';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { registerUser } from '../../actions/authActions';
 
 const styles = theme => ({
   root: {
@@ -36,17 +39,24 @@ class Register extends Component {
       password: this.state.password,
       password2: this.state.password2
     }
-    console.log(newUser);
-    axios.post('/api/users/register', newUser)
-      .then(res => console.log(res.data))
-      .catch(err => this.setState({ errors: err.response.data }));
+    this.props.registerUser(newUser, this.props.history);
+
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors })
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
   render() {
     const { classes } = this.props;
+
     const { errors } = this.state;
+
     return (
       <div className={classes.root}>
         <Grid container spacing={0}>
@@ -98,4 +108,13 @@ class Register extends Component {
   }
 }
 
-export default withStyles(styles)(Register);
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  errors: state.errors
+});
+
+export default connect(mapStateToProps, { registerUser })(withStyles(styles)(withRouter(Register)));
