@@ -31,9 +31,14 @@ class Login extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
   }
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/Home')
+    }
+  }
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/sell');
+      this.props.history.push('/Home');
     }
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import { Paper, TextField, Button } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
-
+import { connect } from 'react-redux';
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
@@ -12,6 +13,11 @@ const styles = theme => ({
 });
 
 export class Landing extends Component {
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/Home')
+    }
+  }
   render() {
     const { classes } = this.props;
     return (
@@ -43,4 +49,10 @@ export class Landing extends Component {
   }
 }
 
-export default withStyles(styles)(Landing);
+Landing.propTypes = {
+  auth: PropTypes.object.isRequired
+}
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps, {})(withStyles(styles)(Landing));
